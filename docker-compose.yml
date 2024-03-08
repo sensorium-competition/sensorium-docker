@@ -1,6 +1,6 @@
 version: '2.3'
 services:
-  notebook:
+  pytorch-notebook:
     build: .
     env_file: .env
-
+    runtime: nvidia
