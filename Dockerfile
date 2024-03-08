@@ -1,4 +1,4 @@
-FROM quay.io/jupyter/pytorch-notebook
+FROM quay.io/jupyter/pytorch-notebook:cuda12-latest
 
 LABEL maintainer="Alexander Ecker <ecker@cs.uni-goettingen.de>"
 
