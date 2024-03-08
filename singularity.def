@@ -1,5 +1,5 @@
 Bootstrap: docker
-From: aecker/sensorium-docker:latest
+From: eckerlab/sensorium-docker:latest
 
 %startscript
     jupyter lab
