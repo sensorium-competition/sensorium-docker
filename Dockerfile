@@ -9,7 +9,7 @@ USER root
 EXPOSE 8888
 
 # Add Jupyter config
-ADD ./jupyter_lab_config.py /home/jovyan/.jupyter/jupyter_notebook_config.py
+ADD ./jupyter_server_config.json /home/jovyan/.jupyter/jupyter_server_config.json
 
 # Install neural predicitve model packages
 RUN pip install git+https://github.com/sinzlab/nnfabrik.git
