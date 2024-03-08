@@ -1,0 +1,6 @@
+Bootstrap: docker
+From: aecker/sensorium-docker:latest
+
+%startscript
+    jupyter lab
+
