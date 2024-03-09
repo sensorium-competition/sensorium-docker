@@ -46,6 +46,22 @@ sudo singularity build sensorium.sif singularity.def
 singularity instance start --bind /path/to/data:/data sensorium.sif sensorium
 ```
 
-Then you can access Jupyter Lab from your browser on `https://hostname:8888/lab`. The password is `sensorium`.
+Then you can access Jupyter Lab from your browser on `https://hostname:8888/lab`. To get the access token, use the following command:
 
+```
+singularity exec instance://sensorium jupyter server list
+```
+
+If you want to set a fixed password for accessing Jupyter Lab in the future, you can do so using the following command:
+
+```
+singularity exec instance://alex jupyter notebook password
+```
+
+It will write a config file into your home directory that will be read next time you start the container. It will not affect the currently running instance.
+
+
+# Contributing
+
+TO DO: Adding CUDA versions, building, pushing to DockerHub
 
