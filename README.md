@@ -43,10 +43,9 @@ If you're using Singularity, build the container as follows:
 
 ```
 sudo singularity build sensorium.sif singularity.def
-singularity instance start --bind /path/to/data:/data sensorium.sif sensorium
+singularity instance start --nv --bind /path/to/data:/data sensorium.sif sensorium
 ```
-
-Then you can access Jupyter Lab from your browser on `https://hostname:8888/lab`. To get the access token, use the following command:
+Don't forget the `--nv` flag if you need access to your GPU. You can access Jupyter Lab from your browser on `https://hostname:8888/lab`. To get the access token, use the following command:
 
 ```
 singularity exec instance://sensorium jupyter server list
