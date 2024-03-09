@@ -1,15 +1,29 @@
 version: '2.3'
 services:
-  pytorch-notebook:
+  cuda11:
     build: 
       context: .
       args:
-        BASE_TAG: ${BASE_TAG:-latest}
-    image: eckerlab/sensorium-docker:${BASE_TAG:-latest}
+        BASE_TAG: cuda11-latest
+    image: eckerlab/sensorium-docker:cuda11
     env_file: .env
     runtime: nvidia
     ports:
       - "8000:8888"
     volumes:
       - ~/projects:/notebooks
+
+  cuda12:
+    build:
+      context: .
+      args:
+        BASE_TAG: cuda12-latest
+    image: eckerlab/sensorium-docker:latest
+    env_file: .env
+    runtime: nvidia
+    ports:
+      - "8000:8888"
+    volumes:
+      - ~/projects:/notebooks
+
 
