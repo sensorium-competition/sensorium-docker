@@ -55,7 +55,7 @@ singularity exec instance://sensorium jupyter server list
 If you want to set a fixed password for accessing Jupyter Lab in the future, you can do so using the following command:
 
 ```
-singularity exec instance://alex jupyter notebook password
+singularity exec instance://sensorium jupyter notebook password
 ```
 
 It will write a config file into your home directory that will be read next time you start the container. It will not affect the currently running instance.
