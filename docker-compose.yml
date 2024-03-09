@@ -1,6 +1,15 @@
 version: '2.3'
 services:
   pytorch-notebook:
-    build: .
+    build: 
+      context: .
+      args:
+        BASE_TAG: ${BASE_TAG:-latest}
+    image: eckerlab/sensorium-docker:${BASE_TAG:-latest}
     env_file: .env
     runtime: nvidia
+    ports:
+      - "8000:8888"
+    volumes:
+      - ~/projects:/notebooks
+

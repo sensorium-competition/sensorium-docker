@@ -1,4 +1,5 @@
-FROM quay.io/jupyter/pytorch-notebook:cuda12-latest
+ARG BASE_TAG=latest
+FROM quay.io/jupyter/pytorch-notebook:${BASE_TAG}
 
 LABEL maintainer="Alexander Ecker <ecker@cs.uni-goettingen.de>"
 
