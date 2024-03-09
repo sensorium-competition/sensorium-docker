@@ -5,15 +5,36 @@ Docker/Singularity environment for working with neural predictive models. It is 
 # Usage
 
 ## Docker
-If you're using Docker, you can just run the image from DockerHub:
+If you're using Docker, you can just run the image from DockerHub. To do so, create two files `docker-compose.yml` and `.env` containing the following:
+
+The file `docker-compose.yml` should contain the following:
+```
+version: '2.3'
+services:
+  pytorch-notebook:
+    image: eckerlab/sensorium-docker:latest
+    env_file: .env
+    runtime: nvidia
+    ports:
+      - "8000:8888"
+    volumes:
+      - /path/to/code:/notebooks
+```
+
+This will pull the image with the `latest` tag. Change it if you need, e.g., an older version of CUDA. You can find the available images on [DockerHub](https://hub.docker.com/repository/docker/eckerlab/sensorium-docker/general). It will export the Jupyter Lab server on port 8000 and mount `/path/to/code` into the folder `/notebooks` in the container.
+
+The `.env` file will get your relevant environment variables into the container. It has to minimally contain the following:
+```
+JUPYTER_PASSWORD=<<pick_a_password>>
+```
+
+Then, to run the container, run the following command from the folder that contains `docker-compose.yml` and `.env`:
 
 ```
-docker run -p8000:8888 --gpus all eckerlab/sensorium-docker
+docker compose up
 ```
 
-You need additional flags to map your environment and paths into the container. TODO: Describe how to do this.
-
-Then you can accesss Jupyter Lab from your browser on `https://hostname:8000/lab`. The password is `sensorium`.
+Then you can accesss Jupyter Lab from your browser on `https://hostname:8000/lab` using the password you defined.
 
 
 ## Singularity
